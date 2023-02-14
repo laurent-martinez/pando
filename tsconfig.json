@@ -19,6 +19,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/stripe.js", "lib/GetStripe.js", "lib/client.js", "context/StateContext.js", "src/pages/product/[slug].jsx", "src/pages/_app.jsx", "src/pages/_document.jsx", "src/pages/success.jsx", "src/pages/index.jsx", "src/components/Cart.jsx", "src/components/Footer.jsx", "src/components/FooterBanner.jsx", "src/components/HeroBanner.jsx", "src/components/index.js", "src/components/Layout.jsx", "src/components/Navbar.jsx", "src/components/Product.jsx", "lib/utils.js"],
   "exclude": ["node_modules"]
 }
