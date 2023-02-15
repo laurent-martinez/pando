@@ -4,6 +4,7 @@ import { AiOutlineMinus, AiOutlinePlus,AiOutlineLeft,AiOutlineRight, AiOutlineSh
 import {TiDeleteOutline} from 'react-icons/ti'
 import toast from 'react-hot-toast'
 import { useStateContext } from 'context/StateContext'
+import cartInstructions from 'public/card-info.png'
 import { urlFor } from 'lib/client'
 import Image from 'next/image'
 import getStripe from 'lib/GetStripe'
@@ -88,9 +89,10 @@ const Cart = () => {
               onClick={handleCheckout}>
                 Pay with Stripes
               </button>
-                <p className='payment-instructions'>
-                  For payment fill eveything with <span>42</span>
+              <p className='payment-instructions'>
+                  Fill the credit card like <span>this</span>
                 </p>
+              <Image src={cartInstructions} alt='payment instructions' width={404} height={112} />
             </div>
           </div>
          )}
