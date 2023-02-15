@@ -2,7 +2,7 @@ import  {HeroBanner, Product, FooterBanner}  from  '../components'
 import React from 'react'
 import { client } from 'lib/client'
 
-const Home = ({products, bannerData}) => {
+const Home = ({products, bannerData} : any) => {
   return (
     <>
     <HeroBanner heroBanner={bannerData[1]}/>
@@ -12,7 +12,7 @@ const Home = ({products, bannerData}) => {
     </div>
 
     <div className='products-container'>
-      {products?.map((product) => {
+      {products?.map((product : any) => {
         return <Product key={product._id} product={product} />
       })}
     </div>

@@ -26,7 +26,7 @@ const Success = () => {
                 If you have any questions, please contact us at <a className='email' href='mailto:laurentmartinezdev@gmail.com'>laurentmartinezdev@gmail.com</a>
             </p>
             <Link href='/'>
-                <button type='button' width='300px' className='btn'>
+                <button type='button'  className='btn'>
                     Continue Shopping
                 </button>
             </Link>

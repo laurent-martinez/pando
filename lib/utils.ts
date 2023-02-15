@@ -6,7 +6,7 @@ var defaults = {
   origin: { y: 0.7 }
 };
 
-function fire(particleRatio, opts) {
+function fire(particleRatio: number, opts: { spread: number; startVelocity?: number; decay?: number; scalar?: number; }) {
   confetti(Object.assign({}, defaults, opts, {
     particleCount: Math.floor(count * particleRatio)
   }));

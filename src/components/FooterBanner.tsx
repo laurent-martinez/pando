@@ -4,7 +4,7 @@ import { urlFor } from '../../lib/client';
 import Image from 'next/image';
 
 
-const FooterBanner = ({footerBanner} ) => {
+const FooterBanner = ({footerBanner} : any ) => {
   const src = urlFor(footerBanner.image).url()
   return (
     <div className='footer-banner-container'>

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
 
-const HeroBanner = ({heroBanner}) => {
+const HeroBanner = ({heroBanner} : any) => {
     const src = urlFor(heroBanner.image).url()
   return (
     <div className='hero-banner-container'>

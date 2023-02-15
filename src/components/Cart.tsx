@@ -9,7 +9,7 @@ import Image from 'next/image'
 import getStripe from 'lib/GetStripe'
 
 const Cart = () => {
-  const cartRef = useRef();
+  const cartRef = useRef<any>();
   const {totalPrice, totalQuantities,cartItems, setShowCart,toggleCartItemQuantity, onRemove} = useStateContext();
   const handleCheckout = async() => {
     const stripe = await getStripe();
@@ -23,7 +23,7 @@ const Cart = () => {
       const session = await response.json();
       console.log("hey hey",session);
       toast.loading('Redirecting to checkout...');
-      stripe.redirectToCheckout({sessionId : session.id})
+      stripe?.redirectToCheckout({sessionId : session.id})
     }
   return (
     <div className='cart-wrapper' ref={cartRef}>
@@ -49,7 +49,7 @@ const Cart = () => {
         </div>
         }
          <div className='product-container'>
-          {cartItems.length >= 1 && cartItems.map((item,index)=> {
+          {cartItems.length >= 1 && cartItems.map((item : any,index: number)=> {
               const src = urlFor(item?.image[0]).url()
            return  <div className='product' key={item._id}>
               <Image src={src}  unoptimized={true} loader={()=> src} alt='product cart image' width={1024} height={1024} className='cart-product-image'/>
@@ -62,7 +62,7 @@ const Cart = () => {
                   <div>
                   <p className='quantity-desc'>
             <span className='minus' onClick={()=> toggleCartItemQuantity(item._id, 'dec')}><AiOutlineMinus/></span>
-            <span className='num' onClick=''>{item.quantity}</span>
+            <span className='num'>{item.quantity}</span>
             <span className='plus' onClick={()=> toggleCartItemQuantity(item._id, 'inc')}><AiOutlinePlus/></span>
           </p>
                   </div>

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { urlFor } from '../../lib/client'
 import Image from 'next/image'
 
-const Product = ({product : {image,name,slug,price}}) => {
+const Product = ({product : {image,name,slug,price}} : any) => {
   const src = urlFor(image && image[0]).url()
   return (
     <div>
