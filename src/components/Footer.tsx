@@ -1,13 +1,14 @@
+import Link from 'next/link'
 import React from 'react'
-import { AiFillInstagram,AiOutlineTwitter } from 'react-icons/ai'
+import { AiFillMail,AiOutlineGithub } from 'react-icons/ai'
 const Footer = () => {
   return (
     <div className='footer-container'>
-      <p>2023 Laurent Martinez All rights reserved</p>
-      <p className='icons'>
-        <AiFillInstagram/>
-        <AiOutlineTwitter/>
-      </p>
+      <Link href='https://www.laurentmartinez.fr/'>2023 <span className='black'>Laurent Martinez</span> All rights reserved</Link>
+      <div className='icons'>
+      <Link href='mailto:martilaurier@gmail.com' target='_blank' className='icons-item'><AiFillMail/></Link>
+      <Link href='https://github.com/laurent-martinez' target='_blank' className='icons-item'><AiOutlineGithub/></Link>
+      </div>
     </div>
   )
 }

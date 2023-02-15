@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React, {useRef, useState} from 'react'
 import Link from 'next/link'
 import { AiOutlineMinus, AiOutlinePlus,AiOutlineLeft,AiOutlineRight, AiOutlineShopping } from 'react-icons/ai'
 import {TiDeleteOutline} from 'react-icons/ti'
@@ -10,9 +10,12 @@ import Image from 'next/image'
 import getStripe from 'lib/GetStripe'
 
 const Cart = () => {
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
   const cartRef = useRef<any>();
   const {totalPrice, totalQuantities,cartItems, setShowCart,toggleCartItemQuantity, onRemove} = useStateContext();
   const handleCheckout = async() => {
+    if (!isDisabled) {
+    setIsDisabled(true);
     const stripe = await getStripe();
     const response = await fetch('/api/stripe', {
       method: 'POST',
@@ -25,6 +28,8 @@ const Cart = () => {
       console.log("hey hey",session);
       toast.loading('Redirecting to checkout...');
       stripe?.redirectToCheckout({sessionId : session.id})
+      setIsDisabled(false);
+    }
     }
   return (
     <div className='cart-wrapper' ref={cartRef}>
@@ -86,6 +91,7 @@ const Cart = () => {
             <div className='btn-container'>
               <button type='button'
               className='btn'
+              disabled={isDisabled}
               onClick={handleCheckout}>
                 Pay with Stripes
               </button>

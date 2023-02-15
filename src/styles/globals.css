@@ -20,10 +20,11 @@ a {
 max-width: 1400px; 
 margin: auto;
 width: 100%;
-
 }
 .layout{
   padding: 10px;
+  /* background-color: #fbfbf1; */
+  background-color: #fff6d3;
 }
 
 .navbar-container{
@@ -183,7 +184,9 @@ width: 100%;
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
-  z-index: 10;
+}
+.hero-banner-container button:hover{
+  background-color: #324d67;
 }
 
 .hero-banner-container h3{
@@ -328,7 +331,7 @@ text-align: end;
 }
 
 .footer-container{
-  color: #324d67;
+  color: #002199;
   text-align: center;
   margin-top: 20px;
   padding: 30px 10px;
@@ -808,4 +811,20 @@ margin-top: 160px;
   width: 300px;
   margin: auto;
 }
+}
+
+.error {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 25px auto;
+  overflow: hidden;
+}
+
+.black {
+  color: #000;
 }

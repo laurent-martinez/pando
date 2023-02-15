@@ -1,17 +1,32 @@
 import { Product } from '@/components'
 import { useStateContext } from 'context/StateContext'
 import Image from 'next/image'
+import { on } from 'process'
 import React, {useState} from 'react'
 import { AiOutlineMinus, AiOutlinePlus,AiOutlineStar, AiFillStar } from 'react-icons/ai'
 import { urlFor,client } from '../../../lib/client'
 
 const ProductDetails = ({product, products} : any) => {
+  const [isDisabled, setIsDisabled] = useState<boolean>(false);
   const {image,name,details, price } = product;
   const [index, setIndex] = useState(0);
-  const {incQty, decQty, qty, onAdd, setShowCart} = useStateContext();
-  const handleBuyNow = () => {
-    onAdd(product, qty);
+  const {incQty, decQty, qty,setQty, onAdd, setShowCart} = useStateContext();
 
+  const handleClick = async() => {
+    if (!isDisabled) {
+      setIsDisabled(true);
+      onAdd(product, qty);
+      // Wait for a short delay before re-enabling the button
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      setIsDisabled(false);
+      setQty(1)
+    }
+  };
+
+  
+  const handleBuyNow = () => {
+    setIsDisabled(true);
+    onAdd(product, qty);
     setShowCart(true);
   }
   const src = urlFor(image && image[index]).url()
@@ -51,7 +66,7 @@ const ProductDetails = ({product, products} : any) => {
           </p>
         </div>
         <div className='buttons'>
-          <button type='button' className='add-to-cart' onClick={()=> onAdd(product,qty)}>Add to Cart</button>
+          <button type='button' className='add-to-cart' disabled={isDisabled} onClick={handleClick}>Add to cart</button>
           <button type='button' className='buy-now' onClick={handleBuyNow}>Buy Now</button>
         </div>
         </div>
