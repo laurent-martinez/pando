@@ -24,7 +24,8 @@ width: 100%;
 .layout{
   padding: 10px;
   /* background-color: #fbfbf1; */
-  background-color: 	#FFFAF0;
+  /* background-color: 	#FFFAF0; */
+  background-color: #FFFFCC;
   /* background-color: #FFFAA0; */
   /* background-color: #ffe981; */
 }
@@ -325,7 +326,7 @@ text-align: end;
 .cart-container{
   height: 100vh;
   width: 600px;
-  background-color: white;
+  background-color: #FFFFCC;
   float: right;
   padding: 40px 10px;
   position: relative;

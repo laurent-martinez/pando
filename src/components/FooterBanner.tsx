@@ -16,7 +16,7 @@ const FooterBanner = ({footerBanner} : any ) => {
           <p>{footerBanner.saleTime}</p>
         </div>
         <div className='right'>
-        <p>{footerBanner.smallText}</p>
+          <p>{footerBanner.smallText}</p>
           <h3>{footerBanner.midText}</h3>
           <p>{footerBanner.desc}</p>
           <Link href={`/product/${footerBanner.product}`}>
